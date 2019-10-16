@@ -17,7 +17,7 @@ $sth->execute();
 $story = $sth->fetch(PDO::FETCH_ASSOC);
 
 $sth = $dbh->prepare('SELECT * FROM links
-                    WHERE story_id = 1');
+                    WHERE story_id = :filteredId');
 $sth->bindParam(':filteredId', $filteredId);
 $sth->execute();
 $links = $sth->fetchAll(PDO::FETCH_ASSOC);
